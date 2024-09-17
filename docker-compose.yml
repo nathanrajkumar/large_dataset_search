@@ -1,0 +1,11 @@
+# docker compose yaml to start our elastic search agent so we dont have to install the physical agent on our computer
+services:
+  elasticsearch:
+    image: elasticsearch:8.8.2
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - discovery.type=single-node
+      # disable security to work on HTTP rather than HTTPS since this project is running locally and not in a secure shell
+      - xpack.security.enabled=false
