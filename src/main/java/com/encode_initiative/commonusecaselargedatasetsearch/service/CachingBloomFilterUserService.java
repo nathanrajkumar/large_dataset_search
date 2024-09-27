@@ -1,4 +1,4 @@
-package com.encode_initiative.service;
+package com.encode_initiative.commonusecaselargedatasetsearch.service;
 
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
@@ -16,9 +16,10 @@ public class CachingBloomFilterUserService {
 
     private BloomFilter<String> bloomFilter;
     private ConcurrentHashMap<String, Boolean> cache = new ConcurrentHashMap<>();
-    private UserService userService = new UserService();
+    private final UserService userService;
 
-    public CachingBloomFilterUserService() {
+    public CachingBloomFilterUserService(UserService userService) {
+        this.userService = userService;
         // Initialize the Bloom filter
         bloomFilter = BloomFilter.create(Funnels.stringFunnel(StandardCharsets.UTF_8), EXPECTED_INSERTIONS, FALSE_POSITIVE_PROBABILITY);
     }

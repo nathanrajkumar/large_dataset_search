@@ -1,9 +1,9 @@
-package com.encode_initiative.web;
+package com.encode_initiative.commonusecaselargedatasetsearch.web;
 
-import com.encode_initiative.service.BloomFilterUserService;
-import com.encode_initiative.service.CachingBloomFilterUserService;
-import com.encode_initiative.service.CachingUserService;
-import com.encode_initiative.service.UserService;
+import com.encode_initiative.commonusecaselargedatasetsearch.service.UserService;
+import com.encode_initiative.commonusecaselargedatasetsearch.service.BloomFilterUserService;
+import com.encode_initiative.commonusecaselargedatasetsearch.service.CachingBloomFilterUserService;
+import com.encode_initiative.commonusecaselargedatasetsearch.service.CachingUserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

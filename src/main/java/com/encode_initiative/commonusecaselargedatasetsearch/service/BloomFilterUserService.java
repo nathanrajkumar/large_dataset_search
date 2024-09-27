@@ -1,4 +1,4 @@
-package com.encode_initiative.service;
+package com.encode_initiative.commonusecaselargedatasetsearch.service;
 
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
@@ -13,9 +13,11 @@ public class BloomFilterUserService {
     private static final double FALSE_POSITIVE_PROBABILITY = 0.01;
 
     private final BloomFilter<String> bloomFilter;
-    private final UserService userService = new UserService();
+//    private final UserService userService = new UserService();
+    private final UserService userService;
 
-    public BloomFilterUserService() {
+    public BloomFilterUserService(UserService userService) {
+        this.userService = userService;
         // Initialize the Bloom filter
         bloomFilter = BloomFilter.create(Funnels.stringFunnel(StandardCharsets.UTF_8), EXPECTED_INSERTIONS, FALSE_POSITIVE_PROBABILITY);
     }
